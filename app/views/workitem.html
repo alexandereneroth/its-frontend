@@ -5,14 +5,14 @@
 	<div> <b>On backlog</b>
 		<ul class="list-unstyled">
 			<div class='col-sm-4'>
-				<li ng-repeat="workItem in workItems" >
+				<li ng-repeat="workItem in workItemsOnBackLog" >
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class='panel-title'>{{workItem.description}}</h4>
 						</div>
 						<div class="panel-body">
 							<p>
-								<ul><li ng-repeat="user in workItem.users" ></li></ul>
+								{{workItem.description}}
 							</p>
 						</div>
 						<div class='panel-footer'>
@@ -26,7 +26,7 @@
 	<div> <b>In progress</b>
 		<ul class="list-unstyled">
 			<div class='col-sm-4'>
-				<li ng-repeat="workItem in workItems" >
+				<li ng-repeat="workItem in workItemsInProgress" >
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h4 class='panel-title'>{{workItem.description}}</h4>
@@ -47,7 +47,7 @@
 	<div> <b>Completed</b>
 		<ul class="list-unstyled">
 			<div class='col-sm-4'>
-				<li ng-repeat="workItem in workItems" >
+				<li ng-repeat="workItem in workItemsDone" >
 					<div class="panel panel-success">
 						<div class="panel-heading">
 							<h4 class='panel-title'>{{workItem.description}}</h4>
