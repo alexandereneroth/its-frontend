@@ -1,68 +1,61 @@
 <div class="row">
-	<div>
-		<h2>WorkItems</h2>
-	</div>
-	<div> <b>On backlog</b>
+	<h2 class="text-primary">Trello</h2>
+</div>
+<div class="row">
+	<p class="lead text-uppercase text-muted"> 
+		<b>on backlog</b>
+	</p>
+</div>
+<div class="row">
+	<div class='col-sm-4'>
 		<ul class="list-unstyled">
-			<div class='col-sm-4'>
-				<li ng-repeat="workItem in workItemsOnBackLog" >
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class='panel-title'>{{workItem.description}}</h4>
-						</div>
-						<div class="panel-body">
-							<p>
-								{{workItem.description}}
-							</p>
-						</div>
-						<div class='panel-footer'>
-							<a class='btn btn-danger' href='#'>X</a>
-						</div>
+			<li ng-repeat="workItem in workItems" >
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+
+						<a class='btn btn-xs btn-danger pull-right' href='#'>X</a>
+						<h4 class='panel-title'>{{workItem.description}}</h4>
 					</div>
-				</li>
-			</div>
-		</ul>
-	</div>
-	<div> <b>In progress</b>
-		<ul class="list-unstyled">
-			<div class='col-sm-4'>
-				<li ng-repeat="workItem in workItemsInProgress" >
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h4 class='panel-title'>{{workItem.description}}</h4>
+					<div class="panel-body">
+						<strong class="pull-left">owners</strong>
+						<div class="pull-right">
+							<div class="dropdown pull-left">
+								<button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+									add
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Arvid Karlsdotter</a></li>
+									<li><a href="#">Britt Marie Don Huerta</a></li>
+									<li><a href="#">Majvid Kalashnikorv</a></li>
+								</ul>
+							</div>
+
+							<div class="dropdown pull-left">
+								<button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+									remove
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Arvid Karlsdotter</a></li>
+									<li><a href="#">Britt Marie Don Huerta</a></li>
+									<li><a href="#">Majvid Kalashnikorv</a></li>
+								</ul>
+							</div>
 						</div>
-						<div class="panel-body">
-							<p>
-								{{workItem.description}}
-							</p>
-						</div>
-						<div class='panel-footer'>
-							<a class='btn btn-danger' href='#'>X</a>
-						</div>
+						<div class="clearfix"></div>
+
+						<p>
+							<div>
+								<ul class="list-inline">
+									<li ng-repeat="user in workItem.users" >{{user.firstname}}</li>
+								</ul>
+							</div>
+						</p>
 					</div>
-				</li>
-			</div>
-		</ul>
-	</div>
-	<div> <b>Completed</b>
-		<ul class="list-unstyled">
-			<div class='col-sm-4'>
-				<li ng-repeat="workItem in workItemsDone" >
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<h4 class='panel-title'>{{workItem.description}}</h4>
-						</div>
-						<div class="panel-body">
-							<p>
-								{{workItem.description}}
-							</p>
-						</div>
-						<div class='panel-footer'>
-							<a class='btn btn-danger' href='#'>X</a>
-						</div>
-					</div>
-				</li>
-			</div>
+					<a class='btn btn-default btn-block btn-xs' href='#'>&#10003; mark done</a>
+				</div>
+			</li>
 		</ul>
 	</div>
 </div>
