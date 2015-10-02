@@ -24,10 +24,8 @@
 									add
 									<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Arvid Karlsdotter</a></li>
-									<li><a href="#">Britt Marie Don Huerta</a></li>
-									<li><a href="#">Majvid Kalashnikorv</a></li>
+								<ul class="dropdown-menu" ng-repeat="user in getAllUsers(workItem)">
+								
 								</ul>
 							</div>
 

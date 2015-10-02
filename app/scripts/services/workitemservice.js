@@ -38,9 +38,21 @@
     	status: "IN_PROGRESS",
     	users: [{
     		"number": 103,
-    		"firstname": "Bart",
+    		"firstname": "Emma",
     		"lastname": "Aga",
-    		"username": "Bartaga",
+    		"username": "Bar",
+    		"team-number": 1
+    	},{
+    		"number": 102,
+    		"firstname": "Gustav",
+    		"lastname": "Evert",
+    		"username": "eds",
+    		"team-number": 1
+    	},{
+    		"number": 109,
+    		"firstname": "Per",
+    		"lastname": "Os",
+    		"username": "Wan",
     		"team-number": 1
     	}]
     }, {
@@ -63,6 +75,12 @@
     		"firstname": "Klark",
     		"lastname": "Do",
     		"username": "klark123",
+    		"team-number": 1
+    	},{
+    		"number": 106,
+    		"firstname": "Eva",
+    		"lastname": "Green",
+    		"username": "ev2",
     		"team-number": 1
     	}]
     }];
