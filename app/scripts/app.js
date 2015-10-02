@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('itsFrontendApp', [
+  .module('itsFrontendApp',[
     'ngRoute'
   ])
   .config(function ($routeProvider) {
