@@ -91,6 +91,10 @@
     			}
     		}
     		return null;
+    	},
+    	getAllUsers: function(workItem) {
+    		
+    		return workItem.users;
     	}
     }; 
 });

@@ -18,6 +18,9 @@
   $scope.workItemsOnBackLog = workItemService.getWorkItemsByStatus('ON_BACKLOG');
   $scope.workItemsInProgress = workItemService.getWorkItemsByStatus('IN_PROGRESS');
   $scope.workItemsDone = workItemService.getWorkItemsByStatus('DONE');
+  $scope.getAllUsers = function(workItem){
+    workItemService.getAllUsers(workItem);
+  };
 });
 
  
