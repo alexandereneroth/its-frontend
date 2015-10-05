@@ -14,7 +14,6 @@ angular.module('itsFrontendApp')
 			scope: {
 				workItem: '=model'
 
-			},
-			link: function postLink(scope, element, attrs) {}
+			}
 		};
 	});
