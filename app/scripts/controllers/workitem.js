@@ -20,7 +20,6 @@
   $scope.workItemsOnBackLog = workItemService.getWorkItemsByStatus('ON_BACKLOG');
   $scope.workItemsInProgress = workItemService.getWorkItemsByStatus('IN_PROGRESS');
   $scope.workItemsDone = workItemService.getWorkItemsByStatus('DONE');
-  $scope.getAllUsers = allUsers;
   function getworkItemByNumber(number){
     for (var i = 0; i < tempWorkItems.length; i++) {
       if (tempWorkItems[i].number === parseInt(number)) {
@@ -38,13 +37,9 @@
     workItemByNR.users.push(user);
     //workItem.addUser(user, workItem);
   };
-  $scope.usersToSelectList = function(workItem){
-    var usersArr = workItem.users;
-    var tempArr= _.difference(allUsers, usersArr);
-    //tempArr = tempArr.filter(function(x) { return usersArr.indexOf(x) < 0 });
-  
-    return tempArr;
+ $scope.usersToSelectList = function(workItem){
+    var myArr = workItemService.getAllUsersToSelect(workItem.users);
+    console.log("my array is" + myArr.length + "long" );
+    return myArr;
   };
-
 });
-

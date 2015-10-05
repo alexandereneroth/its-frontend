@@ -8,7 +8,7 @@
  * Service in the itsFrontendApp.
  */
  angular.module('itsFrontendApp')
- .service('workItemService', function () {
+ .factory('workItemService', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var workItems = [{
     	number: 0,
@@ -85,49 +85,49 @@
     	}]
     }];
     var users = [{
-    		"number": 105,
-    		"firstname": "Klark",
-    		"lastname": "Do",
-    		"username": "klark123",
-    		"team-number": 1
-    	},{
-    		"number": 106,
-    		"firstname": "Eva",
-    		"lastname": "Green",
-    		"username": "ev2",
-    		"team-number": 1
-    	},{
-    		"number": 104,
-    		"firstname": "Tom",
-    		"lastname": "Fa",
-    		"username": "tomasd123",
-    		"team-number": 1
-    	},{
-    		"number": 103,
-    		"firstname": "Emma",
-    		"lastname": "Aga",
-    		"username": "Bar",
-    		"team-number": 1
-    	},{
-    		"number": 102,
-    		"firstname": "Gustav",
-    		"lastname": "Evert",
-    		"username": "eds",
-    		"team-number": 1
-    	},{
-    		"number": 109,
-    		"firstname": "Per",
-    		"lastname": "Os",
-    		"username": "Wan",
-    		"team-number": 1
-    	},{
-    		"number": 101,
-    		"firstname": "Betty",
-    		"lastname": "Miller",
-    		"username": "bmiller15",
-    		"team-number": 1
-    	}
-    ];
+    	"number": 105,
+    	"firstname": "Klark",
+    	"lastname": "Do",
+    	"username": "klark123",
+    	"team-number": 1
+    },{
+    	"number": 106,
+    	"firstname": "Eva",
+    	"lastname": "Green",
+    	"username": "ev2",
+    	"team-number": 1
+    },{
+    	"number": 104,
+    	"firstname": "Tom",
+    	"lastname": "Fa",
+    	"username": "tomasd123",
+    	"team-number": 1
+    },{
+    	"number": 103,
+    	"firstname": "Emma",
+    	"lastname": "Aga",
+    	"username": "Bar",
+    	"team-number": 1
+    },{
+    	"number": 102,
+    	"firstname": "Gustav",
+    	"lastname": "Evert",
+    	"username": "eds",
+    	"team-number": 1
+    },{
+    	"number": 109,
+    	"firstname": "Per",
+    	"lastname": "Os",
+    	"username": "Wan",
+    	"team-number": 1
+    },{
+    	"number": 101,
+    	"firstname": "Betty",
+    	"lastname": "Miller",
+    	"username": "bmiller15",
+    	"team-number": 1
+    }];
+
     return {
     	getAllWorkItems: function() {
     		return workItems;
@@ -156,8 +156,24 @@
     	getAllUsers: function() {
     		return users;
     	},
-    	addUser: function(user, workItem){
-    		
-    	}
-    }; 
+        getAllUsersToSelect: function(toRemove){
+            var usersToselect = users;
+            for( var i=usersToselect.length - 1; i>=0; i--){
+                
+                for( var j=0; j<toRemove.length; j++){
+                    if(usersToselect[i]){
+                        console.log( j + " " + usersToselect[i].firstname);
+                    }
+                    
+                //console.log(toRemove[j].firstname);
+                    if(usersToselect[i] && (usersToselect[i].firstname === toRemove[j].firstname)){
+                      console.log( i + " " + j + " " + usersToselect[i].firstname);
+                      usersToselect.splice(i, 1);
+                    }
+                }
+            }
+            console.log("my array in workItem is " + usersToselect.length);
+          return usersToselect;
+      }
+  }; 
 });
