@@ -47,8 +47,8 @@
     //workItem.addUser(user, workItem);
   };
  $scope.usersToSelectList = function(workItem){
-    var myArr = workItemService.getAllUsersToSelect(workItem.users);
-    return myArr;
+    var tempArr = $scope.workItems;
+    return tempArr;
   };
 });
 
