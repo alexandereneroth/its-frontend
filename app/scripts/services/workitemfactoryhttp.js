@@ -15,7 +15,7 @@ angular.module('itsFrontendApp')
     return {
       getAll: function () {
 
-        return $http.get(serviceUrl)
+        return $http.get(serviceUrl);
       },
       get: function (id) {
 
