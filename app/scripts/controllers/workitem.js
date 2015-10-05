@@ -15,6 +15,7 @@
   $scope.workItemsOnBackLog = workItemService.getWorkItemsByStatus('ON_BACKLOG');
   $scope.workItemsInProgress = workItemService.getWorkItemsByStatus('IN_PROGRESS');
   $scope.workItemsDone = workItemService.getWorkItemsByStatus('DONE');
+  
   function getworkItemByNumber(number){
     for (var i = 0; i < tempWorkItems.length; i++) {
       if (tempWorkItems[i].number === parseInt(number)) {
