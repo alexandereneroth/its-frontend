@@ -8,7 +8,20 @@
  * Controller of the itsFrontendApp
  */
  angular.module('itsFrontendApp')
- .controller('WorkItemCtrl', function ($scope, workItemService, _) {
+ .controller('WorkItemCtrl', function ($scope, workItemService, _, workItemFactoryHttp) {
+    function onError(res) {
+      console.log('Error', res);
+    }
+
+    function getWorkItems() {
+      workItemFactoryHttp.getAll()
+        .then(function (res) {
+          $scope.workItems = res.data;
+        }, onError);
+    }
+
+    getWorkItems();
+
   var tempWorkItems = workItemService.getAllWorkItems();
   var allUsers = workItemService.getAllUsers();
   $scope.workItems = tempWorkItems;
@@ -35,7 +48,6 @@
   };
  $scope.usersToSelectList = function(workItem){
     var myArr = workItemService.getAllUsersToSelect(workItem.users);
-    console.log("my array is" + myArr.length + "long" );
     return myArr;
   };
 });
