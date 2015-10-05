@@ -30,12 +30,19 @@
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
     "load-grunt-tasks": "^3.1.0",
+    "pre-commit": "^1.1.1",
     "time-grunt": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
-  }
+    "test": "grunt test",
+    "jshint": "jshint -c .jshintrc --exclude-path .gitignore ."
+  },
+  "pre-commit": [
+    "jshint",
+    "coverage",
+    "etc"
+  ]
 }
