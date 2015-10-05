@@ -10,7 +10,7 @@
 angular.module('itsFrontendApp')
   .factory('workItemFactoryHttp', function ($http) {
 
-    var serviceUrl = 'http://192.168.68.41/its-webservice/work-items';
+    var serviceUrl = 'http://localhost:8080/its-webservice/work-items/';
 
     return {
       getAll: function () {

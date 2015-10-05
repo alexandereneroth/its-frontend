@@ -1,19 +1,19 @@
 <h2>Trello</h2>
 <div class="row">
 	<div class='col-sm-4'>
-		<p class="lead text-uppercase text-muted"> 
+		<p class="lead text-uppercase text-muted">
 			<b>on backlog</b>
 		</p>
 	</div>
 
 	<div class='col-sm-4'>
-		<p class="lead text-uppercase text-info"> 
+		<p class="lead text-uppercase text-info">
 			<b>in progress</b>
 		</p>
 	</div>
 
 	<div class='col-sm-4'>
-		<p class="lead text-uppercase text-success"> 
+		<p class="lead text-uppercase text-success">
 			<b>completed</b>
 		</p>
 	</div>
@@ -21,21 +21,21 @@
 <div class="row">
 	<div class='col-sm-4'>
 		<ul class="list-unstyled">
-			<li ng-repeat="workItem in workItems" >
+			<li ng-repeat="workItem in workItemsOnBackLog" >
 				<its-work-item model=workItem/>
 			</li>
 		</ul>
 	</div>
 	<div class='col-sm-4'>
 		<ul class="list-unstyled">
-			<li ng-repeat="workItem in workItems" >
+			<li ng-repeat="workItem in workItemsInProgress" >
 				<its-work-item model=workItem/>
 			</li>
 		</ul>
 	</div>
 	<div class='col-sm-4'>
 		<ul class="list-unstyled">
-			<li ng-repeat="workItem in workItems" >
+			<li ng-repeat="workItem in workItemsDone" >
 				<its-work-item model=workItem/>
 			</li>
 		</ul>
