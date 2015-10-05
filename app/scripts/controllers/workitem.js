@@ -9,11 +9,6 @@
  */
  angular.module('itsFrontendApp')
  .controller('WorkItemCtrl', function ($scope, workItemService, _) {
-  $scope.awesomeThings = [
-  'HTML5 Boilerplate',
-  'AngularJS',
-  'Karma'
-  ];
   var tempWorkItems = workItemService.getAllWorkItems();
   var allUsers = workItemService.getAllUsers();
   $scope.workItems = tempWorkItems;
@@ -43,3 +38,4 @@
     return myArr;
   };
 });
+
