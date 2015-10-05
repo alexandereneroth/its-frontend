@@ -20,11 +20,9 @@
       </ul>
     </div>
     <div class="clearfix"></div>
-
-    <p>
-
+    <div class="margin-bottom-15px" ng-show="workItem.users.length > 0"></div>
     <div>
-      <ul class="list-group list-inline">
+      <ul class="list-group list-inline margin-bottom-0px">
         <div class="btn-group btn-group-xs margin-right-5px margin-bottom-5px" ng-repeat="user in workItem.users">
           <button type="button" class="btn">{{user.firstname}}</button>
           <button type="button" class='btn' ng-click='removeUser()'>x</button>
@@ -32,7 +30,6 @@
 
       </ul>
     </div>
-    </p>
   </div>
   <a class='btn btn-default btn-block btn-xs' href='#'>&#10003; mark done</a>
 </div>
