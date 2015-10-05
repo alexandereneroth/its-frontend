@@ -15,7 +15,7 @@ angular.module('itsFrontendApp')
     return {
       getAll: function () {
 
-        return $http.get(serviceUrl)
+        return $http.get(serviceUrl);
       },
       get: function (id) {
 
@@ -31,7 +31,7 @@ angular.module('itsFrontendApp')
         return $http.post(serviceUrl + '/' + id, issue);
       },
       updateStatus: function (id, status) {
-        return $http.put(serviceUrl + '/' + id + '/status');
+        return $http.put(serviceUrl + '/' + id + '/status', status);
       }
     };
   });
