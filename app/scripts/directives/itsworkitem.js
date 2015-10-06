@@ -14,8 +14,9 @@ angular.module('itsFrontendApp')
 			scope: {
 				workItem: '=model',
         onRemove: '=',
-        onAddUser: '=',
-        onRemoveUser: '=',
+        onAddUser: '&',
+        onRemoveUser: '&',
+        allUsersToAdd: '=',
         allUsers: '='
 			},
       controller: function($scope){
@@ -27,6 +28,8 @@ angular.module('itsFrontendApp')
         };
         $scope.removeUser = function(){
           $scope.onRemoveUser();
+        };
+        $scope.getAllUsersToAdd = function(usersInWorkItem, getAllUsers){
         };
       },
       controllerAs: 'ItsWorkItemCtrl'

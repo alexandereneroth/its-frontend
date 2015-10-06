@@ -13,7 +13,7 @@ angular.module('itsFrontendApp')
     function onError(res) {
       console.log('Error', res);
     }
-
+    $scope.usersToAdd = [];
     function getWorkItems() {
       workItemFactoryHttp.getAll()
         .then(function (res) {
@@ -40,31 +40,27 @@ angular.module('itsFrontendApp')
           $scope.allUsers = res.data;
         }, onError);
     }
-
     getWorkItems();
     getAllUsers();
 
-    /*function getworkItemByNumber(number) {
-     for (var i = 0; i < tempWorkItems.length; i++) {
-     if (tempWorkItems[i].number === parseInt(number)) {
-     return tempWorkItems[number];
-     }
-     }
-     return null;
-     }*/
-
-    /*$scope.removeUser = function (user, workItem) {
-     var workItemByNR = getworkItemByNumber(workItem.number);
-     workItemByNR.users.splice(users.indexOf(user), 1);
-     };
-     $scope.addUser = function (user, workItem) {
-     var workItemByNR = getworkItemByNumber(workItem.number);
-     workItemByNR.users.push(user);
-     //workItem.addUser(user, workItem);
-     };
-     $scope.usersToSelectList = function (workItem) {
-     var myArr = workItemService.getAllUsersToSelect(workItem.users);
-     return myArr;
-     };*/
+    $scope.setUsersToSelectList = function(workItem){
+      var toRemove = workItem.users
+      var usersToSelect = $scope.allUsers;
+      console.log('workItem desc is ' + workItem.description);
+      console.log('workItem arr before length is ' + toRemove.length);
+        for( var i=$scope.allUsers.length - 1; i>=0; i--){
+        for( var j=0; j<toRemove.length; j++){
+          if($scope.allUsers[i]){
+          }
+          if($scope.allUsers[i] && ($scope.allUsers[i].firstname === toRemove[j].firstname)){
+            usersToSelect.splice(i, 1);
+          }
+        }
+      }
+      console.log('my array in workItem is ' + usersToSelect.length);
+      console.log('allUsers array is ' + $scope.allUsers.length);
+      console.log('workItem arr length is ' + toRemove.length);
+      $scope.usersToAdd = usersToSelect;
+    };
   });
 
