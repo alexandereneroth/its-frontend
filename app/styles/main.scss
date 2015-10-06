@@ -44,6 +44,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   cursor: pointer;
 }
 
+.full {
+  background: #006070 url('http://p1.pichost.me/i/61/1854779.jpg') no-repeat fixed center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
 /* Begin template */
 .browsehappy {
   margin: 0.2em 0;
