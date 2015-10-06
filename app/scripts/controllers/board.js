@@ -8,7 +8,7 @@
  * Controller of the itsFrontendApp
  */
 angular.module('itsFrontendApp')
-  .controller('BoardCtrl', function ($scope, workItemService, _, workItemFactoryHttp, userFactoryHttp) {
+  .controller('BoardCtrl', function ($scope, _, workItemFactoryHttp, userFactoryHttp) {
 
     function onError(res) {
       console.log('Error', res);
