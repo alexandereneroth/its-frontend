@@ -15,8 +15,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/workitem.html',
-        controller: 'WorkItemCtrl'
+        templateUrl: '../views/board.html',
+        controller: 'BoardCtrl'
       })
       .otherwise({
         redirectTo: '/'
