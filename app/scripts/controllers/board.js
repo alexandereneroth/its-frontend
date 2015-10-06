@@ -83,6 +83,11 @@ angular.module('itsFrontendApp')
         .then(getWorkItems, onError);
     };
 
+    $scope.completeWorkItem = function(number){
+      workItemFactoryHttp.updateStatus(number,'done')
+        .then(getWorkItems,onError);
+    };
+
     getWorkItems();
     getUsers();
   });

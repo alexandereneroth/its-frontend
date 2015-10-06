@@ -16,7 +16,8 @@ angular.module('itsFrontendApp')
         workItem: '=model',
         onRemove: '&',
         onAddUser: '&',
-        onRemoveUser: '&'
+        onRemoveUser: '&',
+        onComplete: '&'
       },
       controllerAs: 'ItsWorkItemCtrl',
       controller: function ($scope, userFactoryHttp) {
@@ -57,6 +58,9 @@ angular.module('itsFrontendApp')
         };
         $scope.removeUser = function () {
           $scope.onRemoveUser();
+        };
+        $scope.markDone = function(){
+          $scope.onComplete();
         };
       }
     };
