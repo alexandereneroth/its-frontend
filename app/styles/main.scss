@@ -4,15 +4,18 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 /* Custom stuff not aquired from template */
-.margin-left-5px {
-  margin-left: 5px;
+.margin-left-15px {
+  margin-left: 15px;
 }
+
 .margin-right-5px {
   margin-right: 5px;
 }
+
 .margin-top-5px {
   margin-top: 5px;
 }
+
 .margin-bottom-5px {
   margin-bottom: 5px;
 }
@@ -23,6 +26,22 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 .margin-bottom-0px {
   margin-bottom: 0px;
+}
+
+.color-white {
+  color: white;
+}
+
+.color-mutedgreen {
+  color: #bfd098;
+}
+
+.color-darkgray {
+  color: darkgray;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 /* Begin template */

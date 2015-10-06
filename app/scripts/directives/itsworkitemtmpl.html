@@ -1,12 +1,15 @@
 <div class="panel panel-success">
   <div class="panel-heading">
-    <a class='btn btn-xs btn-danger pull-right' ng-click="removeWorkItem()">X</a>
+    <a class='pull-right cursor-pointer' ng-click="removeWorkItem()"
+       style="position: relative; top: -5px; right: -9px; font-size: 90%;">
+      <div class="glyphicon glyphicon-remove color-mutedgreen"></div>
+    </a>
     <h4 class='panel-title'>{{workItem.description}}</h4>
   </div>
   <div class="panel-body">
-    <strong class="pull-left">owners</strong>
+    <strong class="pull-left text-lowercase text-muted text-xs-right">owners</strong>
 
-    <div class="dropdown pull-left margin-left-5px">
+    <div class="dropdown pull-left margin-left-15px">
       <button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">
         add
         <span class="caret"></span>
@@ -21,10 +24,14 @@
       <ul class="list-group list-inline margin-bottom-0px">
         <div class="btn-group btn-group-xs margin-right-5px margin-bottom-5px" ng-repeat="user in workItem.users">
           <button type="button" class="btn">{{user.firstname}}</button>
-          <button type="button" class='btn' ng-click='removeUser()'>x</button>
+          <button type="button" class='btn' ng-click='removeUser()'>
+            <div class="glyphicon glyphicon-remove text-muted"></div>
+            </button>
         </div>
       </ul>
     </div>
   </div>
-  <a ng-show="workItem.status == 'IN_PROGRESS'" class='btn btn-default btn-block btn-xs' ng-click="markDone()">&#10003; mark done</a>
+  <a ng-show="workItem.status == 'IN_PROGRESS'" class='btn btn-default btn-block btn-xs' ng-click="markDone()">
+    <span class="glyphicon glyphicon-ok text-muted"></span> <span class="text-muted">mark done</span>
+  </a>
 </div>
