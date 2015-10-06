@@ -14,7 +14,7 @@ angular.module('itsFrontendApp')
       restrict: 'E',
       scope: {
         workItem: '=model',
-        onRemove: '=',
+        onRemove: '&',
         onAddUser: '&',
         onRemoveUser: '&'
       },
@@ -25,7 +25,7 @@ angular.module('itsFrontendApp')
           console.log('Error', res);
         }
 
-        function getAvailableUsers(){
+        function getAvailableUsers() {
           userFactoryHttp.getAllUsers()
             .then(function (res) {
               $scope.availableUsers = res.data;

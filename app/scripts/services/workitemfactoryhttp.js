@@ -19,19 +19,19 @@ angular.module('itsFrontendApp')
       },
       get: function (number) {
 
-        return $http.get(serviceUrl + '/' + number);
+        return $http.get(serviceUrl  + number);
       },
       add: function (user) {
         return $http.post(serviceUrl, user);
       },
       remove: function (number) {
-        return $http.delete(serviceUrl + '/' + number);
+        return $http.delete(serviceUrl + number);
       },
       addIssue: function (number, issue) {
-        return $http.post(serviceUrl + '/' + number, issue);
+        return $http.post(serviceUrl + number, issue);
       },
       updateStatus: function (number, status) {
-        return $http.put(serviceUrl + '/' + number + '/status', status);
+        return $http.put(serviceUrl + number + '/status', status);
       }
     };
   });

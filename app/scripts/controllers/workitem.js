@@ -16,12 +16,15 @@ angular.module('itsFrontendApp')
 
     function getWorkItems() {
       workItemFactoryHttp.getAll()
-        .then(function (res) {
-          $scope.allWorkItems = res.data;
-          $scope.workItemsOnBackLog = filterWorkItemsByStatus('ON_BACKLOG');
-          $scope.workItemsInProgress = filterWorkItemsByStatus('IN_PROGRESS');
-          $scope.workItemsDone = filterWorkItemsByStatus('DONE');
-        }, onError);
+        .then(refreshWorkItems, onError);
+    }
+
+    function refreshWorkItems(res){
+      $scope.allWorkItems = res.data;
+
+      $scope.workItemsOnBackLog = filterWorkItemsByStatus('ON_BACKLOG');
+      $scope.workItemsInProgress = filterWorkItemsByStatus('IN_PROGRESS');
+      $scope.workItemsDone = filterWorkItemsByStatus('DONE');
     }
 
     function filterWorkItemsByStatus(status) {
@@ -41,6 +44,11 @@ angular.module('itsFrontendApp')
           $scope.availableUsers = res.data;
         }, onError);
     }
+
+    $scope.removeWorkItem = function(number){
+      workItemFactoryHttp.remove(number)
+        .then(getWorkItems,onError);
+    };
 
     getWorkItems();
     getUsers();
