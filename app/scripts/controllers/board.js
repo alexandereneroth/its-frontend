@@ -88,6 +88,12 @@ angular.module('itsFrontendApp')
         .then(getWorkItems,onError);
     };
 
+    $scope.removeUserFromWorkItem = function(workItemNumber, userNumber){
+      console.log("herro");
+      userFactoryHttp.removeWorkItemFromUser(userNumber,workItemNumber)
+        .then(function(){}, onError);
+    };
+
     getWorkItems();
     getUsers();
   });

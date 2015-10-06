@@ -9,11 +9,18 @@
  */
 angular.module('itsFrontendApp')
   .factory('userFactoryHttp', function ($http) {
-    var serviceUrl = 'http://localhost:8080/its-webservice/teams/101/users';
+    var serviceUrlBase = 'http://localhost:8080/its-webservice/';
+
+    var usersInTeam101ServiceUrl = serviceUrlBase + 'teams/101/users/';
+    var usersServiceUrl = serviceUrlBase + 'users/';
 
     return {
       getAllUsers: function () {
-        return $http.get(serviceUrl);
+        return $http.get(usersInTeam101ServiceUrl);
+      },
+
+      removeWorkItemFromUser: function (userNumber, workItemNumber) {
+        return $http.delete(usersServiceUrl + userNumber + '/work-items/' + workItemNumber);
       }
     };
 

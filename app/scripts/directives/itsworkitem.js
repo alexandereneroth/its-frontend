@@ -56,10 +56,17 @@ angular.module('itsFrontendApp')
         $scope.addUser = function () {
           $scope.onAddUser();
         };
-        $scope.removeUser = function () {
-          $scope.onRemoveUser();
+        $scope.removeUser = function (index) {
+          var userNumber = $scope.workItem.users[index].number;
+          console.log("workitem nm: "+ $scope.workItem.number);
+          console.log("user nm: " + userNumber);
+          $scope.onRemoveUser({ workItemNumber : $scope.workItem.number, userNumber: userNumber});
+
+          if (index > -1) {
+            $scope.workItem.users.splice(index, 1);
+          }
         };
-        $scope.markDone = function(){
+        $scope.markDone = function () {
           $scope.onComplete();
         };
       }

@@ -15,7 +15,9 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li ng-repeat="userInlist in availableUsers">{{userInlist.firstname}}</li>
+        <li ng-repeat="userInlist in availableUsers">
+          <a ng-click="addUser()">{{userInlist.firstname + ' ' + userInlist.lastname}}</a>
+        </li>
       </ul>
     </div>
     <div class="clearfix"></div>
@@ -24,9 +26,9 @@
       <ul class="list-group list-inline margin-bottom-0px">
         <div class="btn-group btn-group-xs margin-right-5px margin-bottom-5px" ng-repeat="user in workItem.users">
           <button type="button" class="btn">{{user.firstname}}</button>
-          <button type="button" class='btn' ng-click='removeUser()'>
+          <button type="button" class='btn' ng-click='removeUser($index)'>
             <div class="glyphicon glyphicon-remove text-muted"></div>
-            </button>
+          </button>
         </div>
       </ul>
     </div>

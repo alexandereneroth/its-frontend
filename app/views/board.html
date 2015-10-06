@@ -41,21 +41,21 @@
 	<div class='col-sm-4'>
 		<ul class="list-unstyled">
 			<li ng-repeat="workItem in workItemsOnBackLog" >
-				<its-work-item model=workItem on-remove=removeWorkItem(workItem.number) on-complete="completeWorkItem(workItem.number)"/>
+				<its-work-item model=workItem on-remove=removeWorkItem(workItem.number) on-complete="completeWorkItem(workItem.number)" on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"/>
 			</li>
 		</ul>
 	</div>
 	<div class='col-sm-4'>
 		<ul class="list-unstyled">
 			<li ng-repeat="workItem in workItemsInProgress" >
-				<its-work-item model=workItem on-remove=removeWorkItem(workItem.number) on-complete="completeWorkItem(workItem.number)"/>
+				<its-work-item model=workItem on-remove=removeWorkItem(workItem.number) on-complete="completeWorkItem(workItem.number)" on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"/>
 			</li>
 		</ul>
 	</div>
 	<div class='col-sm-4'>
 		<ul class="list-unstyled">
 			<li ng-repeat="workItem in workItemsDone" >
-				<its-work-item model=workItem on-remove=removeWorkItem(workItem.number) on-complete="completeWorkItem(workItem.number)"/>
+				<its-work-item model=workItem on-remove=removeWorkItem(workItem.number) on-complete="completeWorkItem(workItem.number)" on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"/>
 			</li>
 		</ul>
 	</div>
