@@ -1,8 +1,31 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+/* Custom stuff not aquired from template */
+.margin-left-5px {
+  margin-left: 5px;
+}
+.margin-right-5px {
+  margin-right: 5px;
+}
+.margin-top-5px {
+  margin-top: 5px;
+}
+.margin-bottom-5px {
+  margin-bottom: 5px;
+}
+
+.margin-bottom-15px {
+  margin-bottom: 15px;
+}
+
+.margin-bottom-0px {
+  margin-bottom: 0px;
+}
+
+/* Begin template */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
