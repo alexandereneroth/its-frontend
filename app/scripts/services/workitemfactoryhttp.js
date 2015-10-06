@@ -31,7 +31,7 @@ angular.module('itsFrontendApp')
         return $http.post(serviceUrl + '/' + id, issue);
       },
       updateStatus: function (id, status) {
-        return $http.put(serviceUrl + '/' + id + '/status');
+        return $http.put(serviceUrl + '/' + id + '/status', status);
       }
     };
   });
