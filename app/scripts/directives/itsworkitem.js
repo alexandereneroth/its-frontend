@@ -7,43 +7,57 @@
  * # itsWorkItem
  */
 angular.module('itsFrontendApp')
-	.directive('itsWorkItem', function () {
-		return { /*TODO change this URL*/
-			templateUrl: 'scripts/directives/itsworkitemtmpl.html',
-			restrict: 'E',
-			scope: {
-				workItem: '=model',
+  .directive('itsWorkItem', function () {
+    return {
+      /*TODO change this URL*/
+      templateUrl: 'scripts/directives/itsworkitemtmpl.html',
+      restrict: 'E',
+      scope: {
+        workItem: '=model',
         onRemove: '=',
         onAddUser: '&',
-        onRemoveUser: '&',
-        allUsersToAdd: '=',
-        allUsers: '='
-			},
-      controller: function($scope){
-        $scope.removeWorkItem = function(){
-          $scope.onRemove();
-        };
-        $scope.addUser = function(){
-          $scope.onAddUser();
-        };
-        $scope.removeUser = function(){
-          $scope.onRemoveUser();
-        };
-        $scope.getUsersToAdd = function () {
+        onRemoveUser: '&'
+      },
+      controllerAs: 'ItsWorkItemCtrl',
+      controller: function ($scope, userFactoryHttp) {
+
+        function onError(res) {
+          console.log('Error', res);
+        }
+
+        function getAvailableUsers(){
+          userFactoryHttp.getAllUsers()
+            .then(function (res) {
+              $scope.availableUsers = res.data;
+              filterAvailableUsers();
+            }, onError);
+        }
+
+        function filterAvailableUsers() {
+          var availableUsers = $scope.availableUsers;
           var alreadyAdded = $scope.workItem.users;
-          var usersToAdd = angular.copy($scope.allUsers);
-          for (var i = usersToAdd.length - 1; i >= 0; i--) {
+          for (var i = availableUsers.length - 1; i >= 0; i--) {
             for (var j = 0; j < alreadyAdded.length; j++) {
-              if ($scope.allUsers[i]) {
+              if ($scope.availableUsers[i]) {
               }
-              if ($scope.allUsers[i] && ($scope.allUsers[i].firstname === alreadyAdded[j].firstname)) {
-                usersToAdd.splice(i, 1);
+              if ($scope.availableUsers[i] && ($scope.availableUsers[i].firstname === alreadyAdded[j].firstname)) {
+                availableUsers.splice(i, 1);
               }
             }
           }
-          return usersToAdd;
+        }
+
+        getAvailableUsers();
+
+        $scope.removeWorkItem = function () {
+          $scope.onRemove();
         };
-      },
-      controllerAs: 'ItsWorkItemCtrl'
-		};
-	});
+        $scope.addUser = function () {
+          $scope.onAddUser();
+        };
+        $scope.removeUser = function () {
+          $scope.onRemoveUser();
+        };
+      }
+    };
+  });

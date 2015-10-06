@@ -38,7 +38,7 @@ angular.module('itsFrontendApp')
     function getUsers() {
       userFactoryHttp.getAllUsers()
         .then(function (res) {
-          $scope.allUsers = res.data;
+          $scope.availableUsers = res.data;
         }, onError);
     }
 

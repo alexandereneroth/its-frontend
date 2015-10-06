@@ -12,7 +12,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li ng-repeat="userInlist in getUsersToAdd()">{{userInlist.firstname}}</li>
+        <li ng-repeat="userInlist in availableUsers">{{userInlist.firstname}}</li>
       </ul>
     </div>
     <div class="clearfix"></div>
@@ -23,9 +23,8 @@
           <button type="button" class="btn">{{user.firstname}}</button>
           <button type="button" class='btn' ng-click='removeUser()'>x</button>
         </div>
-
       </ul>
     </div>
   </div>
-  <a ng-show="workItem.status == 'IN_PROGRESS'"class='btn btn-default btn-block btn-xs' href='#'>&#10003; mark done</a>
+  <a ng-show="workItem.status == 'IN_PROGRESS'" class='btn btn-default btn-block btn-xs' href='#'>&#10003; mark done</a>
 </div>
