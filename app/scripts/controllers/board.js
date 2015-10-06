@@ -8,7 +8,40 @@
  * Controller of the itsFrontendApp
  */
 angular.module('itsFrontendApp')
-  .controller('BoardCtrl', function ($scope, _, workItemFactoryHttp, userFactoryHttp) {
+  .controller('BoardCtrl', function ($scope, _, workItemFactoryHttp, userFactoryHttp, $timeout) {
+
+    $scope.newWorkItem = {};
+
+    var showAlertMessage = function (isError, message) {
+      //reset
+      $scope.showAlert = false;
+      $scope.doAlertFade = false;
+
+      $scope.alertType = isError ? 'alert-danger' : 'alert-success';
+      $scope.alertMessage = message;
+      $scope.showAlert = true;
+
+      $timeout(function () {
+        $scope.doAlertFade = true;
+      }, 2500);
+    };
+
+    function onAddWorkItemSuccess() {
+      showAlertMessage(false, 'Work Item added');
+      getWorkItems();
+    }
+
+    function onAddWorkItemError() {
+      showAlertMessage(true, 'Error: Work Item not added');
+    }
+
+    $scope.addWorkItem = function () {
+      workItemFactoryHttp.addWorkItem($scope.newWorkItem.number, $scope.newWorkItem.description)
+        .then(onAddWorkItemSuccess, onAddWorkItemError);
+
+      $scope.newWorkItem.number = '';
+      $scope.newWorkItem.description = '';
+    };
 
     function onError(res) {
       console.log('Error', res);
@@ -19,7 +52,7 @@ angular.module('itsFrontendApp')
         .then(refreshWorkItems, onError);
     }
 
-    function refreshWorkItems(res){
+    function refreshWorkItems(res) {
       $scope.allWorkItems = res.data;
 
       $scope.workItemsOnBackLog = filterWorkItemsByStatus('ON_BACKLOG');
@@ -45,9 +78,9 @@ angular.module('itsFrontendApp')
         }, onError);
     }
 
-    $scope.removeWorkItem = function(number){
+    $scope.removeWorkItem = function (number) {
       workItemFactoryHttp.remove(number)
-        .then(getWorkItems,onError);
+        .then(getWorkItems, onError);
     };
 
     getWorkItems();

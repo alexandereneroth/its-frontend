@@ -38,11 +38,9 @@
   },
   "scripts": {
     "test": "grunt test",
-    "jshint": "jshint -c .jshintrc --exclude-path .gitignore ."
+    "jshint": "grunt jshint:all"
   },
   "pre-commit": [
-    "jshint",
-    "coverage",
-    "etc"
+    "jshint"
   ]
 }

@@ -32,6 +32,16 @@ angular.module('itsFrontendApp')
       },
       updateStatus: function (number, status) {
         return $http.put(serviceUrl + number + '/status', status);
+      },
+      addWorkItem: function (number, description) {
+        var newWorkItem = {};
+        newWorkItem.number = number;
+        newWorkItem.description = description;
+        newWorkItem.status = 'ON_BACKLOG';
+        newWorkItem.users = null;
+        newWorkItem.issue = null;
+
+        return $http.post(serviceUrl, newWorkItem);
       }
     };
   });
