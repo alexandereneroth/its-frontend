@@ -12,8 +12,23 @@ angular.module('itsFrontendApp')
 			templateUrl: 'scripts/directives/itsworkitemtmpl.html',
 			restrict: 'E',
 			scope: {
-				workItem: '=model'
-
-			}
+				workItem: '=model',
+        onRemove: '=',
+        onAddUser: '=',
+        onRemoveUser: '=',
+        allUsers: '='
+			},
+      controller: function($scope){
+        $scope.removeWorkItem = function(){
+          $scope.onRemove();
+        };
+        $scope.addUser = function(){
+          $scope.onAddUser();
+        };
+        $scope.removeUser = function(){
+          $scope.onRemoveUser();
+        };
+      },
+      controllerAs: 'ItsWorkItemCtrl'
 		};
 	});

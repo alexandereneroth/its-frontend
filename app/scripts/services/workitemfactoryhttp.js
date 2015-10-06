@@ -17,21 +17,21 @@ angular.module('itsFrontendApp')
 
         return $http.get(serviceUrl);
       },
-      get: function (id) {
+      get: function (number) {
 
-        return $http.get(serviceUrl + '/' + id);
+        return $http.get(serviceUrl + '/' + number);
       },
       add: function (user) {
         return $http.post(serviceUrl, user);
       },
-      remove: function (id) {
-        return $http.delete(serviceUrl + '/' + id);
+      remove: function (number) {
+        return $http.delete(serviceUrl + '/' + number);
       },
-      addIssue: function (id, issue) {
-        return $http.post(serviceUrl + '/' + id, issue);
+      addIssue: function (number, issue) {
+        return $http.post(serviceUrl + '/' + number, issue);
       },
-      updateStatus: function (id, status) {
-        return $http.put(serviceUrl + '/' + id + '/status', status);
+      updateStatus: function (number, status) {
+        return $http.put(serviceUrl + '/' + number + '/status', status);
       }
     };
   });
