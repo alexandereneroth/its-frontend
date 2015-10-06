@@ -13,7 +13,7 @@ angular.module('itsFrontendApp')
 			restrict: 'E',
 			scope: {
 				workItem: '=model',
-        onRemove: '=',
+        onRemove: '&',
         onAddUser: '=',
         onRemoveUser: '=',
         allUsers: '='
