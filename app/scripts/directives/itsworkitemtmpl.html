@@ -12,11 +12,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">show</a></li>
-        <li><a href="#">all</a></li>
-        <li><a href="#">users in</a></li>
-        <li><a href="#">team</a></li>
-        <li><a href="#">here</a></li>
+        <li ng-repeat="userInList in allUsers">{{userInList}}</li>
       </ul>
     </div>
     <div class="clearfix"></div>

@@ -8,7 +8,7 @@
  * Controller of the itsFrontendApp
  */
 angular.module('itsFrontendApp')
-  .controller('WorkItemCtrl', function ($scope, workItemService, _, workItemFactoryHttp) {
+  .controller('WorkItemCtrl', function ($scope, workItemService, _, workItemFactoryHttp, userFactoryHttp) {
 
     function onError(res) {
       console.log('Error', res);
@@ -34,8 +34,15 @@ angular.module('itsFrontendApp')
       }
       return workItemsWithStatus;
     }
+    function getAllUsers() {
+      userFactoryHttp.getAllUsers()
+        .then(function (res) {
+          $scope.allUsers = res.data;
+        }, onError);
+    }
 
     getWorkItems();
+    getAllUsers();
 
     /*function getworkItemByNumber(number) {
      for (var i = 0; i < tempWorkItems.length; i++) {
