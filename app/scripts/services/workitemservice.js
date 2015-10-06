@@ -130,24 +130,24 @@
 
     return {
     	getAllWorkItems: function() {
-    		return workItems;
+    		return allWorkItems;
     	},
     	removeWorkItem: function(workItem) {
-    		workItems.splice(workItems.indexOf(workItem), 1);
+    		allWorkItems.splice(allWorkItems.indexOf(workItem), 1);
     	},
     	getWorkItemsByStatus: function(status) {
     		var workItemsByStatus = [];
 
-    		for (var i = 0; i < workItems.length; i++) {
-    			if (workItems[i].status === status) {
-    				workItemsByStatus.push(workItems[i]);
+    		for (var i = 0; i < allWorkItems.length; i++) {
+    			if (allWorkItems[i].status === status) {
+    				workItemsByStatus.push(allWorkItems[i]);
     			}
     		}
     		return workItemsByStatus;
     	},
     	getworkItemById: function(workItemId) {
-    		for (var i = 0; i < workItems.length; i++) {
-    			if (workItems[i].id === parseInt(workItemId)) {
+    		for (var i = 0; i < allWorkItems.length; i++) {
+    			if (allWorkItems[i].id === parseInt(workItemId)) {
     				return workItemId[i];
     			}
     		}

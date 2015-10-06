@@ -29,7 +29,19 @@ angular.module('itsFrontendApp')
         $scope.removeUser = function(){
           $scope.onRemoveUser();
         };
-        $scope.getAllUsersToAdd = function(usersInWorkItem, getAllUsers){
+        $scope.getUsersToAdd = function () {
+          var alreadyAdded = $scope.workItem.users;
+          var usersToAdd = angular.copy($scope.allUsers);
+          for (var i = usersToAdd.length - 1; i >= 0; i--) {
+            for (var j = 0; j < alreadyAdded.length; j++) {
+              if ($scope.allUsers[i]) {
+              }
+              if ($scope.allUsers[i] && ($scope.allUsers[i].firstname === alreadyAdded[j].firstname)) {
+                usersToAdd.splice(i, 1);
+              }
+            }
+          }
+          return usersToAdd;
         };
       },
       controllerAs: 'ItsWorkItemCtrl'
