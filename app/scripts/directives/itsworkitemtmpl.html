@@ -35,10 +35,10 @@
   </div>
   <div style="width:100%" class="btn-group" role="group">
     <button style="width:50%" ng-disabled="workItem.status == 'ON_BACKLOG'" class='btn btn-default btn-xs' ng-click="moveLeft(workItem.status)">
-      <span ng-hide="workItem.status == 'ON_BACKLOG'" class="glyphicon glyphicon-chevron-left glyphicon-align-right text-muted" aria-hidden="true"></span>&nbsp;
+      <span ng-hide="workItem.status == 'ON_BACKLOG'" class="glyphicon glyphicon-arrow-left text-muted" aria-hidden="true"></span>&nbsp;
     </button>
     <button style="width:50%" ng-disabled="workItem.status == 'DONE'" class='btn btn-default btn-xs' ng-click="moveRight(workItem.status)">
-      <span ng-hide="workItem.status == 'DONE'" class="glyphicon glyphicon-chevron-right glyphicon-align-right text-muted" aria-hidden="true"></span>&nbsp;
+      <span ng-hide="workItem.status == 'DONE'" class="glyphicon glyphicon-arrow-right text-muted" aria-hidden="true"></span>&nbsp;
     </button>
   </div>
 </div>
