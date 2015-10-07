@@ -1,0 +1,60 @@
+/*
+Error: File to import not found or unreadable: bootstrap-sass-official/assets/stylesheets/_bootstrap.scss.
+        on line 3 of main.scss
+
+1: $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+2: // bower:scss
+3: @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+4: // endbower
+5: 
+6: /* Custom stuff not aquired from template *\/
+7: .margin-left-15px {
+8:   margin-left: 15px;
+
+Backtrace:
+main.scss:3
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:45:in `import'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `with_base'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:364:in `watch_or_update'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:52:in `parse'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:19:in `parse!'
+/Users/Jitan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.18/bin/scss:13:in `<top (required)>'
+/Users/Jitan/.rbenv/versions/2.1.2/bin/scss:23:in `load'
+/Users/Jitan/.rbenv/versions/2.1.2/bin/scss:23:in `<main>'
+/Users/Jitan/.rbenv/versions/2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/Users/Jitan/.rbenv/versions/2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: bootstrap-sass-official/assets/stylesheets/_bootstrap.scss.\A         on line 3 of main.scss\A \A 1: $icon-font-path: \"../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/\";\A 2: // bower:scss\A 3: @import \"bootstrap-sass-official/assets/stylesheets/_bootstrap.scss\";\A 4: // endbower\A 5: \A 6: /* Custom stuff not aquired from template */\A 7: .margin-left-15px {\A 8:   margin-left: 15px;"; }
