@@ -58,8 +58,6 @@ angular.module('itsFrontendApp')
         };
         $scope.removeUser = function (index) {
           var userNumber = $scope.workItem.users[index].number;
-          console.log("workitem nm: "+ $scope.workItem.number);
-          console.log("user nm: " + userNumber);
           $scope.onRemoveUser({ workItemNumber : $scope.workItem.number, userNumber: userNumber});
 
           if (index > -1) {
