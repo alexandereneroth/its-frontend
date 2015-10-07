@@ -17,7 +17,8 @@ angular.module('itsFrontendApp')
         onRemove: '&',
         onAddUser: '&',
         onRemoveUser: '&',
-        onComplete: '&'
+        onComplete: '&',
+        panelClass: '@'
       },
       controllerAs: 'ItsWorkItemCtrl',
       controller: function ($scope, userFactoryHttp) {

@@ -41,7 +41,9 @@
   <div class='col-sm-4'>
     <ul class="list-unstyled">
       <li ng-repeat="workItem in workItemsOnBackLog">
-        <its-work-item model=workItem on-remove=removeWorkItem(workItem.number)
+        <its-work-item model=workItem
+                       panel-class="panel-default"
+                       on-remove=removeWorkItem(workItem.number)
                        on-complete="completeWorkItem(workItem.number)"
                        on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"
                        on-add-user="addUserToWorkItem(workItem,userNumber)"/>
@@ -51,7 +53,9 @@
   <div class='col-sm-4'>
     <ul class="list-unstyled">
       <li ng-repeat="workItem in workItemsInProgress">
-        <its-work-item model=workItem on-remove=removeWorkItem(workItem.number)
+        <its-work-item model=workItem
+                       panel-class="panel-primary"
+                       on-remove=removeWorkItem(workItem.number)
                        on-complete="completeWorkItem(workItem.number)"
                        on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"
                        on-add-user="addUserToWorkItem(workItem,userNumber)"/>
@@ -61,7 +65,9 @@
   <div class='col-sm-4'>
     <ul class="list-unstyled">
       <li ng-repeat="workItem in workItemsDone">
-        <its-work-item model=workItem on-remove=removeWorkItem(workItem.number)
+        <its-work-item model=workItem
+                       panel-class="panel-success"
+                       on-remove=removeWorkItem(workItem.number)
                        on-complete="completeWorkItem(workItem.number)"
                        on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"
                        on-add-user="addUserToWorkItem(workItem,userNumber)"/>
