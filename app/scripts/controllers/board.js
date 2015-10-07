@@ -96,11 +96,20 @@ angular.module('itsFrontendApp')
         }, onError);
     };
 
-    $scope.addUserToWorkItem = function (workItemNumber, userNumber) {
-      userFactoryHttp.addUserToWorkItem(userNumber, {'number': workItemNumber} )
+    $scope.addUserToWorkItem = function (workItem, userNumber) {
+
+      userFactoryHttp.addUserToWorkItem(userNumber, {'number': workItem.number} )
         .then(function () {
-          getWorkItems();
-          getUsers();
+          if(workItem.status === 'ON_BACKLOG') {
+            workItemFactoryHttp.updateStatus(workItem.number, 'IN_PROGRESS')
+              .then(function () {
+                getWorkItems();
+                getUsers();
+              });
+          } else {
+            getWorkItems();
+            getUsers();
+          }
         }, onError);
     };
 
