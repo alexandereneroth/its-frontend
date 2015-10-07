@@ -1,14 +1,15 @@
-<div class="row">
-  <div class="col-sm-3">
-    <h2>Todo</h2>
-  </div>
 
+<div class="page-header">
+  <h2>Todo</h2>
+</div>
+
+<div class="row">
   <div class="col-sm-3">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addWorkItem">
       Add Work Item
     </button>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-3">
     <div data-ng-show="showAlert" class="alert {{ alertType }}" ng-class="{fade:doAlertFade }">
       <strong> {{alertMessage}} </strong>
     </div>
@@ -39,6 +40,7 @@
 <div class="row">
 
   <div class='col-sm-4'>
+
     <ul class="list-unstyled">
       <li ng-repeat="workItem in workItemsOnBackLog">
         <its-work-item model=workItem on-remove=removeWorkItem(workItem.number)
