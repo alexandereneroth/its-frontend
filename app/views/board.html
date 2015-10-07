@@ -27,6 +27,7 @@
       <li ng-repeat="workItem in workItemsOnBackLog">
         <its-work-item model=workItem
                        panel-class="panel-default"
+                       on-status-change="moveWorkItemToColumn(workItemNumber,status, direction)"
                        on-remove=removeWorkItem(workItem.number)
                        on-complete="completeWorkItem(workItem.number)"
                        on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"
@@ -43,6 +44,7 @@
       <li ng-repeat="workItem in workItemsInProgress">
         <its-work-item model=workItem
                        panel-class="panel-primary"
+                       on-status-change="moveWorkItemToColumn(workItemNumber,status, direction)"
                        on-remove=removeWorkItem(workItem.number)
                        on-complete="completeWorkItem(workItem.number)"
                        on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"
@@ -59,6 +61,7 @@
       <li ng-repeat="workItem in workItemsDone">
         <its-work-item model=workItem
                        panel-class="panel-success"
+                       on-status-change="moveWorkItemToColumn(workItemNumber,status, direction)"
                        on-remove=removeWorkItem(workItem.number)
                        on-complete="completeWorkItem(workItem.number)"
                        on-remove-user="removeUserFromWorkItem(workItemNumber,userNumber)"

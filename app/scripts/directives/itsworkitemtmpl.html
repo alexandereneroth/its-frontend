@@ -33,7 +33,12 @@
       </ul>
     </div>
   </div>
-  <a ng-show="workItem.status == 'IN_PROGRESS'" class='btn btn-default btn-block btn-xs' ng-click="markDone()">
-    <span class="glyphicon glyphicon-ok text-muted"></span> <span class="text-muted">mark done</span>
-  </a>
+  <div style="width:100%" class="btn-group" role="group">
+    <button style="width:50%" ng-disabled="workItem.status == 'ON_BACKLOG'" class='btn btn-default btn-xs' ng-click="moveLeft(workItem.status)">
+      <span ng-hide="workItem.status == 'ON_BACKLOG'" class="glyphicon glyphicon-chevron-left glyphicon-align-right text-muted" aria-hidden="true"></span>&nbsp;
+    </button>
+    <button style="width:50%" ng-disabled="workItem.status == 'DONE'" class='btn btn-default btn-xs' ng-click="moveRight(workItem.status)">
+      <span ng-hide="workItem.status == 'DONE'" class="glyphicon glyphicon-chevron-right glyphicon-align-right text-muted" aria-hidden="true"></span>&nbsp;
+    </button>
+  </div>
 </div>

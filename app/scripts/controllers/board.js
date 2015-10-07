@@ -88,6 +88,26 @@ angular.module('itsFrontendApp')
         .then(getWorkItems, onError);
     };
 
+    $scope.moveWorkItemToColumn = function (workItemNumber, status, direction) {
+      console.log('hest');
+      var newStatus;
+      if (status === 'ON_BACKLOG') {
+        newStatus = 'IN_PROGRESS';
+      } else if (status === 'IN_PROGRESS') {
+        if (direction === 'left') {
+          newStatus = 'ON_BACKLOG';
+        } else { /*direction === 'right'*/
+          newStatus = 'DONE';
+        }
+      } else { /*status === 'DONE'*/
+        newStatus = 'IN_PROGRESS';
+      }
+
+      console.log('snell', newStatus);
+      workItemFactoryHttp.updateStatus(workItemNumber, newStatus)
+        .then(getWorkItems, onError);
+    };
+
     $scope.removeUserFromWorkItem = function (workItemNumber, userNumber) {
       userFactoryHttp.removeWorkItemFromUser(userNumber, workItemNumber)
         .then(function () {
@@ -98,9 +118,9 @@ angular.module('itsFrontendApp')
 
     $scope.addUserToWorkItem = function (workItem, userNumber) {
 
-      userFactoryHttp.addUserToWorkItem(userNumber, {'number': workItem.number} )
+      userFactoryHttp.addUserToWorkItem(userNumber, {'number': workItem.number})
         .then(function () {
-          if(workItem.status === 'ON_BACKLOG') {
+          if (workItem.status === 'ON_BACKLOG') {
             workItemFactoryHttp.updateStatus(workItem.number, 'IN_PROGRESS')
               .then(function () {
                 getWorkItems();

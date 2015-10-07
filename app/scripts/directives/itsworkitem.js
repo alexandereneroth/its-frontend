@@ -18,6 +18,7 @@ angular.module('itsFrontendApp')
         onAddUser: '&',
         onRemoveUser: '&',
         onComplete: '&',
+        onStatusChange: '&',
         panelClass: '@'
       },
       controllerAs: 'ItsWorkItemCtrl',
@@ -67,6 +68,12 @@ angular.module('itsFrontendApp')
         };
         $scope.markDone = function () {
           $scope.onComplete();
+        };
+        $scope.moveLeft = function (status) {
+          $scope.onStatusChange({workItemNumber: $scope.workItem.number, status: status, direction: 'left'});
+        };
+        $scope.moveRight = function (status) {
+          $scope.onStatusChange({workItemNumber: $scope.workItem.number, status: status, direction: 'right'});
         };
       }
     };
