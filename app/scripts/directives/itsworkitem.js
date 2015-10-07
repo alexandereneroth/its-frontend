@@ -53,8 +53,8 @@ angular.module('itsFrontendApp')
         $scope.removeWorkItem = function () {
           $scope.onRemove();
         };
-        $scope.addUser = function () {
-          $scope.onAddUser();
+        $scope.addUser = function (userInList) {
+          $scope.onAddUser({ workItemNumber : $scope.workItem.number, userNumber: userInList.number});
         };
         $scope.removeUser = function (index) {
           var userNumber = $scope.workItem.users[index].number;

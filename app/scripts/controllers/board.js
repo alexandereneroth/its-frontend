@@ -83,14 +83,25 @@ angular.module('itsFrontendApp')
         .then(getWorkItems, onError);
     };
 
-    $scope.completeWorkItem = function(number){
-      workItemFactoryHttp.updateStatus(number,'done')
-        .then(getWorkItems,onError);
+    $scope.completeWorkItem = function (number) {
+      workItemFactoryHttp.updateStatus(number, 'done')
+        .then(getWorkItems, onError);
     };
 
-    $scope.removeUserFromWorkItem = function(workItemNumber, userNumber){
-      userFactoryHttp.removeWorkItemFromUser(userNumber,workItemNumber)
-        .then(function(){}, onError);
+    $scope.removeUserFromWorkItem = function (workItemNumber, userNumber) {
+      userFactoryHttp.removeWorkItemFromUser(userNumber, workItemNumber)
+        .then(function () {
+          getWorkItems();
+          getUsers();
+        }, onError);
+    };
+
+    $scope.addUserToWorkItem = function (workItemNumber, userNumber) {
+      userFactoryHttp.addUserToWorkItem(userNumber, {'number': workItemNumber} )
+        .then(function () {
+          getWorkItems();
+          getUsers();
+        }, onError);
     };
 
     getWorkItems();

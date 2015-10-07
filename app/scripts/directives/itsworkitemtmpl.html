@@ -15,8 +15,8 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li ng-repeat="userInlist in availableUsers">
-          <a ng-click="addUser()">{{userInlist.firstname + ' ' + userInlist.lastname}}</a>
+        <li ng-repeat="userInList in availableUsers">
+          <a ng-click="addUser(userInList)">{{userInList.firstname + ' ' + userInList.lastname}}</a>
         </li>
       </ul>
     </div>
