@@ -89,7 +89,6 @@ angular.module('itsFrontendApp')
     };
 
     $scope.moveWorkItemToColumn = function (workItemNumber, status, direction) {
-      console.log('hest');
       var newStatus;
       if (status === 'ON_BACKLOG') {
         newStatus = 'IN_PROGRESS';
@@ -102,8 +101,6 @@ angular.module('itsFrontendApp')
       } else { /*status === 'DONE'*/
         newStatus = 'IN_PROGRESS';
       }
-
-      console.log('snell', newStatus);
       workItemFactoryHttp.updateStatus(workItemNumber, newStatus)
         .then(getWorkItems, onError);
     };
