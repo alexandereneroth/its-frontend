@@ -23,7 +23,6 @@ angular.module('itsFrontendApp')
         return $http.delete(usersServiceUrl + userNumber + '/work-items/' + workItemNumber);
       },
       addUserToWorkItem: function (userNumber, workItemNumber) {
-        console.log(userNumber, workItemNumber);
         return $http.put(usersServiceUrl + userNumber + '/work-items/', workItemNumber);
       }
     };
