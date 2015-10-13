@@ -14,11 +14,9 @@ angular.module('itsFrontendApp')
 
     return {
       getAll: function () {
-
         return $http.get(serviceUrl);
       },
       get: function (number) {
-
         return $http.get(serviceUrl  + number);
       },
       add: function (user) {

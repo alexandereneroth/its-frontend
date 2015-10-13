@@ -8,8 +8,12 @@
  * Controller of the itsFrontendApp
  */
 angular.module('itsFrontendApp')
-  .controller('BoardCtrl', function ($scope, _, workItemFactoryHttp, userFactoryHttp, $timeout) {
+  .controller('BoardCtrl', function ($scope, _,$location, workItemFactoryHttp, userFactoryHttp, $timeout, $localStorage) {
 
+    $scope.token = $localStorage.token;
+    if($localStorage.token === null){
+      window.location = '../#/login';
+    }
     $scope.newWorkItem = {};
 
     var showAlertMessage = function (isError, message) {
