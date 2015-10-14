@@ -8,8 +8,12 @@
  * Factory in the itsFrontendApp.
  */
 angular.module('itsFrontendApp')
-  .factory('authFactory', function () {
+  .factory('authFactory', function ($http) {
 
-    //var serviceUrlBase = 'http://localhost:8080/its-webservice/login';
-
+    var serviceUrl = 'http://localhost:8080/its-webservice/login';
+    return {
+      signin: function (formData) {
+        return $http.post(serviceUrl, formData);
+      }
+    };
   });
