@@ -25,7 +25,7 @@ angular.module('itsFrontendApp')
           window.location = '../#/';
         }
       }, function() {
-        $rootScope.error = 'Failed to signin';
+        $rootScope.error = 'Failed to login';
       });
 
     };

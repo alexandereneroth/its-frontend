@@ -10,7 +10,7 @@
 angular.module('itsFrontendApp')
   .factory('authFactory', function ($http) {
 
-    var serviceUrlBase = 'http://localhost:8080/its-webservice/users/login';
+    var serviceUrlBase = 'http://localhost:8080/its-webservice/login';
 
     return {
       signin: function(data, success, error) {
