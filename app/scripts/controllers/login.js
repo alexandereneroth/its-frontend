@@ -10,23 +10,20 @@
 angular.module('itsFrontendApp')
   .controller('LoginCtrl', function ($scope, $rootScope, $localStorage, authFactory) {
 
-    $scope.signin = function() {
+    $scope.signin = function () {
       var formData = {
         username: $scope.name,
         password: $scope.password
       };
-
-      authFactory.signin(formData, function(res) {
-        if (res.type === false) {
-          console.log(res.data);
-          window.location = '../#/login';
-        } else {
-          $localStorage.token = res.data.token;
-          window.location = '../#/';
-        }
-      }, function() {
-        $rootScope.error = 'Failed to signin';
-      });
+      console.log(formData);
+      authFactory.signin(formData)
+        .then(function (res) {
+            console.log(res);
+          },
+          function (res) {
+            console.log(res);
+          }
+        );
 
     };
 
