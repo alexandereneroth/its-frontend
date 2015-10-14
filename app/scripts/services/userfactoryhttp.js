@@ -18,7 +18,6 @@ angular.module('itsFrontendApp')
       getAllUsers: function () {
         return $http.get(usersInTeam101ServiceUrl);
       },
-
       removeWorkItemFromUser: function (userNumber, workItemNumber) {
         return $http.delete(usersServiceUrl + userNumber + '/work-items/' + workItemNumber);
       },
