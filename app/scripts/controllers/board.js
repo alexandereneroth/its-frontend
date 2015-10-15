@@ -8,9 +8,12 @@
  * Controller of the itsFrontendApp
  */
 angular.module('itsFrontendApp')
-  .controller('BoardCtrl', function ($scope, _,$location, workItemFactoryHttp, userFactoryHttp, $timeout, $localStorage) {
+  .controller('BoardCtrl', function ($scope, _,$location, workItemFactoryHttp, userFactoryHttp, $timeout, $localStorage, $routeParams) {
 
     $scope.token = $localStorage.token;
+    if($routeParams.teamnumber !== $localStorage.user.teamnumber){
+      window.location = '../#/login';
+    }
     if($localStorage.token === null){
       window.location = '../#/login';
     }
@@ -47,8 +50,7 @@ angular.module('itsFrontendApp')
       $scope.newWorkItem.description = '';
     };
 
-    function onError(res) {
-      console.log('Error', res);
+    function onError() {
     }
 
     function getWorkItems(teamNr) {

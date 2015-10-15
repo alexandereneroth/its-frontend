@@ -19,7 +19,7 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
-      .when('/team/:teamId/board', {
+      .when('/team/:teamnumber/board', {
         templateUrl: '../views/board.html',
         controller: 'BoardCtrl'
       })
