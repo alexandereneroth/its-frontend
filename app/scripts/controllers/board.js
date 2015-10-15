@@ -32,7 +32,7 @@ angular.module('itsFrontendApp')
 
     function onAddWorkItemSuccess() {
       showAlertMessage(false, 'Work Item added');
-      getWorkItems();
+      getWorkItems($localStorage.user.teamnumber);
     }
 
     function onAddWorkItemError() {
@@ -51,10 +51,13 @@ angular.module('itsFrontendApp')
       console.log('Error', res);
     }
 
-    function getWorkItems() {
+    function getWorkItems(teamNr) {
+    workItemFactoryHttp.getAllFromTeam(teamNr).then(refreshWorkItems, onError);
+    }
+    /*function getWorkItems() {
       workItemFactoryHttp.getAll()
         .then(refreshWorkItems, onError);
-    }
+    }*/
 
     function refreshWorkItems(res) {
       $scope.allWorkItems = res.data;
@@ -84,12 +87,12 @@ angular.module('itsFrontendApp')
 
     $scope.removeWorkItem = function (number) {
       workItemFactoryHttp.remove(number)
-        .then(getWorkItems, onError);
+        .then(getWorkItems($localStorage.user.teamnumber), onError);
     };
 
     $scope.completeWorkItem = function (number) {
       workItemFactoryHttp.updateStatus(number, 'done')
-        .then(getWorkItems, onError);
+        .then(getWorkItems($localStorage.user.teamnumber), onError);
     };
 
     $scope.moveWorkItemToColumn = function (workItemNumber, status, direction) {
@@ -106,13 +109,13 @@ angular.module('itsFrontendApp')
         newStatus = 'IN_PROGRESS';
       }
       workItemFactoryHttp.updateStatus(workItemNumber, newStatus)
-        .then(getWorkItems, onError);
+        .then(getWorkItems($localStorage.user.teamnumber), onError);
     };
 
     $scope.removeUserFromWorkItem = function (workItemNumber, userNumber) {
       userFactoryHttp.removeWorkItemFromUser(userNumber, workItemNumber)
         .then(function () {
-          getWorkItems();
+          getWorkItems($localStorage.user.teamnumber);
           getUsers();
         }, onError);
     };
@@ -124,17 +127,17 @@ angular.module('itsFrontendApp')
           if (workItem.status === 'ON_BACKLOG') {
             workItemFactoryHttp.updateStatus(workItem.number, 'IN_PROGRESS')
               .then(function () {
-                getWorkItems();
+                getWorkItems($localStorage.user.teamnumber);
                 getUsers();
               });
           } else {
-            getWorkItems();
+            getWorkItems($localStorage.user.teamnumber);
             getUsers();
           }
         }, onError);
     };
 
-    getWorkItems();
+    getWorkItems($localStorage.user.teamnumber);
     getUsers();
   });
 

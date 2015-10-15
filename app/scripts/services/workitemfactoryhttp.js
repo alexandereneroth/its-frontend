@@ -10,26 +10,30 @@
 angular.module('itsFrontendApp')
   .factory('workItemFactoryHttp', function ($http) {
 
-    var serviceUrl = 'http://localhost:8080/its-webservice/work-items/';
-
+    var serviceUrl = 'http://localhost:8080/its-webservice/';
+    var workitemServiceUrl = serviceUrl + 'work-items/';
+    var teamServiceUrl = serviceUrl + 'teams/';
     return {
       getAll: function () {
-        return $http.get(serviceUrl);
+        return $http.get(workitemServiceUrl);
       },
       get: function (number) {
-        return $http.get(serviceUrl  + number);
+        return $http.get(workitemServiceUrl  + number);
+      },
+      getAllFromTeam: function(teamNumber){
+        return $http.get(teamServiceUrl + teamNumber + '/work-items');
       },
       add: function (user) {
-        return $http.post(serviceUrl, user);
+        return $http.post(workitemServiceUrl, user);
       },
       remove: function (number) {
-        return $http.delete(serviceUrl + number);
+        return $http.delete(workitemServiceUrl + number);
       },
       addIssue: function (number, issue) {
-        return $http.post(serviceUrl + number, issue);
+        return $http.post(workitemServiceUrl + number, issue);
       },
       updateStatus: function (number, status) {
-        return $http.put(serviceUrl + number + '/status', status);
+        return $http.put(workitemServiceUrl + number + '/status', status);
       },
       addWorkItem: function (number, description) {
         var newWorkItem = {};

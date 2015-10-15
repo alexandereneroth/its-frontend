@@ -8,13 +8,23 @@
  * Controller of the itsFrontendApp
  */
 angular.module('itsFrontendApp')
-  .controller('LoginCtrl', function ($scope, $localStorage, authFactory, $timeout) {
+  .controller('LoginCtrl', function ($scope, $localStorage, authFactory, $timeout, userFactoryHttp) {
     $scope.token = $localStorage.token;
+    var setUser = function (userName){
+      userFactoryHttp.getUserByUserName(userName).then(function(res){
+        $localStorage.user = res.data;
+        window.location = '../#/team/' + $localStorage.user.teamnumber +'/board';
+        console.log('--------- local storage user---------');
+        console.log($localStorage.user);
+        console.log($localStorage.user.number);
+      },
+        function () {
+        });
+    };
     var showAlertMessage = function (isError, message) {
       //reset
       $scope.showAlert = false;
       $scope.doAlertFade = false;
-
       $scope.alertType = isError ? 'alert-danger' : 'alert-success';
       $scope.alertMessage = message;
       $scope.showAlert = true;
@@ -32,9 +42,10 @@ angular.module('itsFrontendApp')
       authFactory.signin(formData)
         .then(function (res) {
             $localStorage.token = res.data.value;
+            setUser($scope.name);
             console.log(res);
             console.log('local storage token '+ $localStorage.token);
-            window.location = '../#/team/' + 5 +'/board';
+            console.log('local storage user ', $localStorage.user);
           },
           function (res) {
             console.log('error '+ res);
