@@ -14,11 +14,6 @@ angular
   ])
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
-      })
       .when('/team/:teamId/board', {
         templateUrl: '../views/board.html',
         controller: 'BoardCtrl'

@@ -14,6 +14,9 @@ angular.module('itsFrontendApp')
     return {
       signin: function (formData) {
         return $http.post(serviceUrl, formData);
+      },
+      logout: function () {
+        return $http.post('http://localhost:8080/its-webservice/logout');
       }
     };
   });

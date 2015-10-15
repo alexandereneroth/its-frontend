@@ -10,14 +10,14 @@
 angular.module('itsFrontendApp')
   .controller('LoginCtrl', function ($scope, $localStorage, authFactory, $timeout, userFactoryHttp) {
     $scope.token = $localStorage.token;
-    var setUser = function (userName){
-      userFactoryHttp.getUserByUserName(userName).then(function(res){
-        $localStorage.user = res.data;
-        window.location = '../#/team/' + $localStorage.user.teamnumber +'/board';
-        console.log('--------- local storage user---------');
-        console.log($localStorage.user);
-        console.log($localStorage.user.number);
-      },
+    var setUser = function (userName) {
+      userFactoryHttp.getUserByUserName(userName).then(function (res) {
+          $localStorage.user = res.data;
+          window.location = '../#/team/' + $localStorage.user.teamnumber + '/board';
+          console.log('--------- local storage user---------');
+          console.log($localStorage.user);
+          console.log($localStorage.user.number);
+        },
         function () {
         });
     };
@@ -44,20 +44,32 @@ angular.module('itsFrontendApp')
             $localStorage.token = res.data.value;
             setUser($scope.name);
             console.log(res);
-            console.log('local storage token '+ $localStorage.token);
+            console.log('local storage token ' + $localStorage.token);
             console.log('local storage user ', $localStorage.user);
           },
           function (res) {
-            console.log('error '+ res);
+            console.log('error ' + res);
             $scope.name = '';
             $scope.password = '';
-            if(res.status === 401){
+            if (res.status === 401) {
               showAlertMessage(false, 'wrong username or password');
-            }else{
+            } else {
               showAlertMessage(false, 'the user is already logged on');
             }
           }
         );
     };
 
+    $scope.logout = function () {
+      authFactory.logout()
+        .then(function () {
+            $localStorage.$reset();
+            showAlertMessage(false, 'logged out');
+
+          },
+          function () {
+            showAlertMessage(false, 'unable to logout');
+
+          });
+    };
   });
