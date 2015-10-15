@@ -17,7 +17,6 @@ angular.module('itsFrontendApp')
         return $http.get(serviceUrlBase + 'teams/' + $localStorage.user.teamnumber + '/users/');
       },
       getAllWorkItemsByUser: function(userId){
-        console.log('get workItems = ' + usersServiceUrl + userId + '/work-items');
         return $http.get(usersServiceUrl + userId + '/work-items');
       },
       removeWorkItemFromUser: function (userNumber, workItemNumber) {

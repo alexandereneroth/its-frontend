@@ -42,7 +42,6 @@ angular.module('itsFrontendApp')
         newWorkItem.status = 'ON_BACKLOG';
         newWorkItem.users = null;
         newWorkItem.issue = null;
-
         return $http.post(serviceUrl, newWorkItem);
       }
     };

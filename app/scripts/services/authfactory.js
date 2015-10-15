@@ -9,7 +9,6 @@
  */
 angular.module('itsFrontendApp')
   .factory('authFactory', function ($http) {
-
     var serviceUrl = 'http://localhost:8080/its-webservice/login';
     return {
       signin: function (formData) {

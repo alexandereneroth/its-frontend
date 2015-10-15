@@ -11,7 +11,7 @@ angular.module('itsFrontendApp')
   .controller('BoardCtrl', function ($scope, _,$location, workItemFactoryHttp, userFactoryHttp, $timeout, $localStorage, $routeParams) {
 
     $scope.token = $localStorage.token;
-    if($routeParams.teamnumber !== $localStorage.user.teamnumber){
+    if($routeParams.teamnumber !== $localStorage.user.teamnumber+ ''){
       window.location = '../#/login';
     }
     if($localStorage.token === null){
@@ -56,11 +56,6 @@ angular.module('itsFrontendApp')
     function getWorkItems(teamNr) {
     workItemFactoryHttp.getAllFromTeam(teamNr).then(refreshWorkItems, onError);
     }
-    /*function getWorkItems() {
-      workItemFactoryHttp.getAll()
-        .then(refreshWorkItems, onError);
-    }*/
-
     function refreshWorkItems(res) {
       $scope.allWorkItems = res.data;
 
@@ -68,7 +63,6 @@ angular.module('itsFrontendApp')
       $scope.workItemsInProgress = filterWorkItemsByStatus('IN_PROGRESS');
       $scope.workItemsDone = filterWorkItemsByStatus('DONE');
     }
-
     function filterWorkItemsByStatus(status) {
       var workItemsWithStatus = [];
 

@@ -24,8 +24,7 @@ angular.module('itsFrontendApp')
       controllerAs: 'ItsWorkItemCtrl',
       controller: function ($scope, userFactoryHttp) {
 
-        function onError(res) {
-          console.log('Error', res);
+        function onError() {
         }
 
         function getAvailableUsers() {

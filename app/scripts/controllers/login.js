@@ -14,9 +14,6 @@ angular.module('itsFrontendApp')
       userFactoryHttp.getUserByUserName(userName).then(function(res){
         $localStorage.user = res.data;
         window.location = '../#/team/' + $localStorage.user.teamnumber +'/board';
-        console.log('--------- local storage user---------');
-        console.log($localStorage.user);
-        console.log($localStorage.user.number);
       },
         function () {
         });
@@ -38,17 +35,12 @@ angular.module('itsFrontendApp')
         username: $scope.name,
         password: $scope.password
       };
-      console.log(formData);
       authFactory.signin(formData)
         .then(function (res) {
             $localStorage.token = res.data.value;
             setUser($scope.name);
-            console.log(res);
-            console.log('local storage token '+ $localStorage.token);
-            console.log('local storage user ', $localStorage.user);
           },
           function (res) {
-            console.log('error '+ res);
             $scope.name = '';
             $scope.password = '';
             if(res.status === 401){
@@ -59,5 +51,4 @@ angular.module('itsFrontendApp')
           }
         );
     };
-
   });
