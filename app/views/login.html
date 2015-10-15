@@ -1,5 +1,7 @@
 <h2>Login</h2>
-<div class="alert alert-danger" data-ng-show="token"></div>
+<div data-ng-show="showAlert" class="alert alert-danger" ng-class="{fade:doAlertFade }">
+  <strong> {{alertMessage}} </strong>
+</div>
 <form name="form" role="form" ng-submit="signin()">
   <div class="form-group">
     <label>Username</label>
