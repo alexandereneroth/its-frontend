@@ -11,7 +11,7 @@ angular.module('itsFrontendApp')
   .controller('BoardCtrl', function ($scope, _,$location, workItemFactoryHttp, userFactoryHttp, $timeout, $localStorage, $routeParams) {
 
     $scope.token = $localStorage.token;
-    if($routeParams.teamnumber !== $localStorage.user.teamnumber+ ''){
+    if($routeParams.teamId !== $localStorage.user.teamnumber+ ''){
       window.location = '../#/login';
     }
     if($localStorage.token === null){
